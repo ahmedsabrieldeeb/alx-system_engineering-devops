@@ -12,4 +12,5 @@ Here I will state of each script listed in this directory
 - 9-firstdirdeletion --> deleting a directory
 - 10-back --> getting back to previous directory
 - 11-lists --> listing current, parent and /boot directory contents (*including hidden ones*) with long format
+- 12-file_type --> showing the file type
 -
