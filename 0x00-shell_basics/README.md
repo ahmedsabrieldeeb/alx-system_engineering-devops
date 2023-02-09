@@ -13,4 +13,5 @@ Here I will state of each script listed in this directory
 - 10-back --> getting back to previous directory
 - 11-lists --> listing current, parent and /boot directory contents (*including hidden ones*) with long format
 - 12-file_type --> showing the file type
+- 13-symbolic_link --> creating a symbolic link (*symlink or soft link*)
 -
