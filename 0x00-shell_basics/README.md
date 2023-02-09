@@ -5,3 +5,4 @@ Here I will state of each script listed in this directory
 - 2-bring_me_home --> takes you to your *HOME* directory
 - 3-listfiles --> shows you all stuff with more details
 - 4-listmorefiles --> showing all files (*including hidden ones*) with long details
+- 5-listfilesdigitonly --> displaying the details with numbers (*user ID, group ID*)
