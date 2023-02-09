@@ -10,3 +10,5 @@ Here I will state of each script listed in this directory
 - 7-movethatfile --> moving a file from a path to another path
 - 8-firstdelete --> deleting a file
 - 9-firstdirdeletion --> deleting a directory
+- 10-back --> getting back to previous directory
+
