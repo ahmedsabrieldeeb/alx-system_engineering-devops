@@ -7,3 +7,4 @@ Here I will state of each script listed in this directory
 - 4-listmorefiles --> showing all files (*including hidden ones*) with long details
 - 5-listfilesdigitonly --> displaying the details with numbers (*user ID, group ID*)
 - 6-firstdirectory --> creating a dir in a specific path
+- 7-movethatfile --> moving a file from a path to another path
