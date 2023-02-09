@@ -9,3 +9,4 @@ Here I will state of each script listed in this directory
 - 6-firstdirectory --> creating a dir in a specific path
 - 7-movethatfile --> moving a file from a path to another path
 - 8-firstdelete --> deleting a file
+- 9-firstdirdeletion --> deleting a directory
