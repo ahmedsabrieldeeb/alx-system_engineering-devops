@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+# printinf files in the current directory
+for file in *; do
+	if [[ ! "$file" == .* ]]; then
+		corrected_name="${file#*-}"
+		echo "$corrected_name"
+	fi
+done
