@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# printing numbers ten times with while
+i=1
+while [ "$i" -lt "21" ]; do
+	case "$i" in
+		4) printf "%d\nbad luck from China" "$i" ;;
+		9) printf "%d\nbad luck from Japan" "$i" ;;
+		17) printf "%d\nbad luck from Italy" "$i" ;;
+		*) echo "$i" ;;
+	esac
+	i=$((i + 1))
+done
