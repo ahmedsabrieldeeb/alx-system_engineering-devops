@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # This script displays a list of currently running processes.
-
-ps aux
+ps aux --forest
+# aux: to prin all users' processes
+# --forest: to print the output paths in a heirarachial format
