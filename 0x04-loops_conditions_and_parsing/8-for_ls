@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # printinf files in the current directory
 for file in *; do
 	if [[ ! "$file" == .* ]]; then
