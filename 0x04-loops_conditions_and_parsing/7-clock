@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# printing numbers twenty times with while
+hour=0
+while [ "$hour" -lt "13" ]; do
+	printf "Hour: %d\n" "$hour"
+	min=1
+	while [ "$min" -lt "60" ]; do
+		printf "%d\n" "$min"
+		((min+=1))
+	done
+	((hour+=1))
+done
