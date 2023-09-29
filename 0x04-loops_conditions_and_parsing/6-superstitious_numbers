@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# printing numbers ten times with while
+# printing numbers twenty times with while
 i=1
 while [ "$i" -lt "21" ]; do
 	case "$i" in
