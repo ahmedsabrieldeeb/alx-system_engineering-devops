@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# a bash script displays only listening sockets with pid and names
+netstat -lutp
