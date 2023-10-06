@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # configuring ip addresses of server's hosts file
 cp /etc/hosts ~/hosts.new
 echo "127.0.0.2        localhost" > /etc/hosts
