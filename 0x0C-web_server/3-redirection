@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# That is another way of publishing your website pages to your server.
+# Check if Nginx is installed
+if ! command -v nginx &> /dev/null; then
+	# Install Nginx
+	apt-get update
+	apt-get install -y nginx
+fi
+
+# Configure Nginx
+echo "server {
+    listen 80;
+
+    location /redirect_me {
+		rewrite ^/redirect_me/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Restart Nginx
+service nginx restart
