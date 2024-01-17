@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# That is another way of publishing your website pages to your server.
 # Check if Nginx is installed
 if ! command -v nginx &> /dev/null; then
 	# Install Nginx
