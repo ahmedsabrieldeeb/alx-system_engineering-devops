@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Setting up a firewall to port forwarding
+
+# Check if ufw is installed
+if ! command -v ufw &> /dev/null; then
+	# Install Nginx
+	apt-get update
+	apt-get install -y ufw
+fi
+
+
+# Enabling ufw
+sudo ufw enable
+
+# Allow incoming traffic on port 8080
+sudo ufw allow 8080/tcp
+
+# Allow the route option for port 8080
+sudo ufw route allow 8080
+
+# Do the routing from 8080 to 80
+sudo ufw route from any to any port 8080 proto tcp route-to port 80
+
+# Reload the service to apply the changess
+sudo ufw reload
