@@ -10,11 +10,11 @@ fi
 
 
 # Reset ufw
-sudo ufw reset
+sudo ufw enable
 
-# Denying everything incoming and outgoing
+# Denying everything incoming and allowing outgoing
 sudo ufw default deny incoming
-sudo ufw default deny outgoing
+sudo ufw default allow outgoing
 
 # Allowing SSH, HTTP, HTTPS-SSL
 sudo ufw allow 22/tcp
@@ -22,4 +22,4 @@ sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 
 # Enable ufw
-sudo ufw enable
+sudo ufw reload
