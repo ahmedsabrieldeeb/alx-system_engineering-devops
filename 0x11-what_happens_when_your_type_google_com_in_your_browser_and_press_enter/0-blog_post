@@ -1,0 +1,82 @@
+# Content
+1. [Introduction](#introduction)
+2. [DNS request](#dns-request)
+3. [TCP/IP](#tcpip)
+4. [Firewall](#firewall)
+5. [HTTPS/SSL](#httpsssl)
+6. [Load-balancer](#load-balancer)
+7. [Web server](#web-server)
+8. [Application server](#application-server)
+9. [Database](#database)
+10. [Conclusion](#conclusion)
+
+# Introduction
+We browse the internet in a couple of clicks and we get what we want in less than one second in most cases, so we tend to believe that everything is a piece of cake handled in the background. In the era of fiber optics and the fast transmission media systems we use nowadays, we started to forget about the complexity of the *WEB* and what is being done under the hood, so let me take you with a small trip in this article trying to give you a short brief on **what happens when you type https://www.google.com in your browser and hit Enter**
+
+
+# DNS request
+Firstly, computers or any device connected on the network *(internet)* are labeled with some address called Internet Protocol address *(IP address)* which is a unique number for each device *(endpoint)* in the network such as *(198.168.1.225)* for example, but we humans are not good enough for remembering numbers like that, however we are good with names so each ip address could be refernced with a name which is called the domain name or the name of website that you are heading to such as www.google.com. Those ip address associated with their domain names is called **Domain Name System (DNS)**
+
+### DNS Caching of Browser
+Actually, your browser has a small cache storing there the standard domain names and the most ones you usually request, so it could get the ip address associated with that specific domain name you are requesting, but what if that domain name is new for your browser?
+
+### DNS of OS
+Your operating system *(OS)* is also having its own DNS *(DNS Resolver)*, where it could search for the ip address of the domain name that your browser doesn't know, and then repsonds to the browser to make its request to that server *(the device holding the website you request its content to be served for you)*
+
+### DNS of your ISP
+if your device doen't have any clue to that ip address you should go for, it makes a request to the Internet Service Provider *(ISP)* asking for it. Your ISP has sometimes its own DNS system to search for queried domain names, but what if we still don't know?
+
+### Root DNS Servers
+When neither your device, the browser, the operating system, nor the ISP's DNS has the required information, the next step is to query the root DNS servers. These servers are a fundamental part of the DNS hierarchy and maintain information about top-level domain (TLD) servers.
+
+### Top-Level Domain (TLD) Servers
+The root DNS servers will direct the query to the appropriate TLD servers based on the top-level domain of the requested domain name (e.g., ".com," ".org," ".net"). TLD servers have information about second-level domain names.
+
+### Authoritative DNS Servers
+The TLD servers then direct the query to the authoritative DNS servers responsible for the specific domain name being requested. These authoritative servers hold the most up-to-date and accurate information about the requested domain.
+
+Finally, The authoritative DNS servers provide the IP address associated with the requested domain name back to your device through the chain of DNS servers. This information is then stored in various DNS caches along the way, facilitating quicker access for subsequent requests.
+
+![DNS](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F5dd6a922-eea7-49b3-aa1a-b1e21793a36a_1999x908.png)
+
+Let us be honest, Google's ip adresses *(yes, google has a lot of servers having mutliple different unique ip address on the network)* are always present in your browser cache, so it would be resolved as quickly as possible.
+
+# TCP/IP
+Now, we have the ip address of the website *(server)* we need to head to which is **google.com** in our case, so what would be happened after that by our browser? it will try to establish a connection between our device and the server via Transmission Control Protocol and Internet Protocol *(TCP/IP)* suite of protocols. This suite has made the web efficient and vital as it is today since it facilitates and ease the process of information and data communication between all the devices connected on the internet. Here's an overview of the key components of the TCP/IP stack involved in this process:
+
+## Application Layer
+Your browser uses the HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) protocols at the application layer to communicate with web servers. HTTPS provides a secure, encrypted connection.
+
+## Transport Layer
+TCP is responsible for ensuring reliable, ordered, and error-checked delivery of data between your device and the server. When you enter a URL, your browser initiates a TCP connection to the server.
+
+## Internet Layer
+IP handles the addressing and routing of data packets between devices on the internet. It ensures that data reaches its destination by providing logical addressing (IP addresses).
+
+## Link Layer
+The link layer encompasses the physical and data link layers, dealing with the actual transmission of data over the physical network medium, such as Ethernet or Wi-Fi.
+
+![DNS](https://media.geeksforgeeks.org/wp-content/uploads/20211104130347/tcp2-660x335.PNG)
+
+Ofcourse, there are a lot of details on how that protocol works but once that connection established between your deivce and google's server, then we are ready to start to communicate with the server, and it has the ablitiy to respond to us. Let's see what happens after that.
+
+# Firewall
+
+
+# HTTPS/SSL
+...
+
+# Load-balancer
+...
+
+# Web server
+...
+
+# Application server
+...
+
+# Database
+...
+
+# Conclusion
+...
