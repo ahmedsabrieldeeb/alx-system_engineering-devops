@@ -1,48 +1,16 @@
-# configuration automation manifest
+# Use Puppet to automate the task of creating a custom HTTP header response
 
-$hostname_parts = split($::hostname, '-')
-$server_name = "${hostname_parts[1]}-${hostname_parts[2]}"
-
-package { 'nginx':
-  ensure => installed,
+exec {'update':
+  command => '/usr/bin/apt-get update',
 }
-
-file { '/etc/nginx/sites-available/default':
-  ensure  => present,
-  content => "server {
-    listen 80;
-
-    add_header X-Served-By ${server_name};
-
-    location / {
-      root /var/www/html;
-      index test.html;
-    }
-
-    location /redirect_me {
-      rewrite ^/redirect_me/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-    }
-
-    error_page 404 /404.html;
-    location = /404.html {
-      root /var/www/html;
-      internal;
-    }
-  }",
+-> package {'nginx':
+  ensure => 'present',
 }
-
-file { '/var/www/html/test.html':
-  ensure  => present,
-  content => 'Hello World!',
+-> file_line { 'http_header':
+  path  => '/etc/nginx/nginx.conf',
+  match => 'http {',
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
-
-file { '/var/www/html/404.html':
-  ensure  => present,
-  content => 'Ceci n\'est pas une page',
-}
-
-service { 'nginx':
-  ensure    => running,
-  enable    => true,
-  subscribe => File['/etc/nginx/sites-available/default'],
+-> exec {'run':
+  command => '/usr/sbin/service nginx restart',
 }
