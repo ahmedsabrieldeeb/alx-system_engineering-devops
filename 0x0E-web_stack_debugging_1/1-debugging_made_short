@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Debugging the nginx service on the localmachine
+sudo service nginx restart
