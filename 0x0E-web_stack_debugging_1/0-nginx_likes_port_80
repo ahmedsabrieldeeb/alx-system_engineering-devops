@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Debugging the nginx service on the localmachine
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
