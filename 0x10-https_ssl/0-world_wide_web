@@ -25,7 +25,7 @@ audit_domain() {
 
     for sub in "${subdomains[@]}"; do
         destination=$(dig "$sub.$domain" | awk 'NR==14{print $5}')
-        echo "The subdomain $sub.$domain is an A record and points to $destination"
+        echo "The subdomain $sub is an A record and points to $destination"
     done
 }
 
