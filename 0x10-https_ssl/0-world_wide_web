@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+######## Description ########
+# Your Bash script must accept 2 arguments:
+# domain:
+# 	type: string
+# 	what: domain name to audit
+# 	mandatory: yes
+# subdomain:
+# 	type: string
+# 	what: specific subdomain to audit
+# 	mandatory: no
+# Output:
+# 	The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+#############################
+
+audit_domain() {
+    local domain="$1"
+    local subdomain="$2"
+
+    if [ -z "$subdomain" ]; then
+        subdomains=("www" "lb-01" "web-01" "web-02")
+    else
+        subdomains=("$subdomain")
+    fi
+
+    for sub in "${subdomains[@]}"; do
+        destination=$(dig "$sub.$domain" | awk 'NR==14{print $5}')
+        echo "The subdomain $sub.$domain is an A record and points to $destination"
+    done
+}
+
+# Check if the number of arguments is correct
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+    echo "Usage: $0 <domain> [subdomain]"
+    exit 1
+fi
+
+# Call the audit_domain function
+audit_domain "$1" "$2"
