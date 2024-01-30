@@ -1,0 +1,29 @@
+global
+        # Global settings
+
+defaults
+        # Default settings
+
+frontend front_end_http
+        # Frontend configuration
+
+                bind *:80
+                mode http
+                http-request add-header X-Forwarded-Proto http
+                default_backend web_servers
+
+frontend front_end_https
+        # Frontend configuration
+
+                bind *:443 ssl crt /etc/letsencrypt/live/www.ahmedisdeeb.tech/www.ahmedisdeeb.tech.pem
+                http-request add-header X-Forwarded-Proto https
+                default_backend web_servers
+
+
+backend web_servers
+        # Backend configuration
+
+                mode http
+                balance roundrobin
+                server webserver1 100.26.11.29:80 check
+                server webserver2 34.207.61.191:80 check
