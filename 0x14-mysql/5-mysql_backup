@@ -18,6 +18,3 @@ mysqldump -u $MYSQL_USER -p$MYSQL_PASSWORD --all-databases > $BACKUP_FILE
 
 # Compress the backup file to a tar.gz archive
 tar -czvf $ARCHIVE_NAME $BACKUP_FILE
-
-# Remove the backup file
-rm $BACKUP_FILE
