@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Backup MySQL databases
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <mysql_password>"
+    exit 1
+fi
+
+# Variables
+password="$1"
+backup_file="backup.sql"
+archive_name="$(date +'%d-%m-%Y').tar.gz"
+
+# Dump MySQL databases to a file
+mysqldump -u root -p$password --all-databases > "$backup_file"
+
+# Check if mysqldump was successful
+if [ $? -ne 0 ]; then
+    echo "Error: MySQL dump failed."
+    exit 1
+fi
+
+# Compress the MySQL dump file
+tar -czvf "$archive_name" "$backup_file"
+
+# Check if compression was successful
+if [ $? -ne 0 ]; then
+    echo "Error: Compression failed."
+    exit 1
+fi
+
+echo "Backup completed successfully. Archive: $archive_name"
