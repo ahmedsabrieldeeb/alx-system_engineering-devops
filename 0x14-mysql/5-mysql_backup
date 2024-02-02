@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# This script creates a backup of all MySQL databases
 # Get the current date in the desired format
 DATE=$(date +%d-%m-%Y)
 
