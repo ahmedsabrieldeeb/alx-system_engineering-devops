@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
+""" This module retrieves and prints the completed tasks """
 import requests
 import sys
+
 
 def get_todo_employee(employee_id):
     """
@@ -29,18 +30,18 @@ def get_todo_employee(employee_id):
         data = response.json()
 
         # Retrieve the employee information
-        employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(employee_id)).json()
+        name = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                            .format(employee_id)).json()
 
         # Filter the tasks to only include the completed ones
         tasks = [task for task in data if task.get('completed') is True]
 
         # Print the employee name and the number of completed tasks
-        print("Employee {} is done with tasks({}/{}):".format(employee.get('name'), len(tasks), len(data)))
+        print("Employee {} is done with tasks({}/{}):"
+              .format(name.get('name'), len(tasks), len(data)))
 
         # Print the titles of the completed tasks
         [print("\t {}".format(task.get('title'))) for task in tasks]
-
-
 
 
 if __name__ == "__main__":
