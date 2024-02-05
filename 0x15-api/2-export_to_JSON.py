@@ -3,6 +3,7 @@
 This module retrieves and prints the completed tasks
 and exports the data into JSON file
 """
+import json
 import requests
 import sys
 
@@ -43,7 +44,7 @@ def get_todo_employee(employee_id):
                 user_records['completed'] = task.get('completed')
                 user_records['username'] = username
                 user_dict[str(employee_id)].append(user_records)
-            f.write(str(user_dict))
+            json.dump(user_dict, f)
 
 
 if __name__ == "__main__":
